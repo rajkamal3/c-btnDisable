@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <script>
+      function onInp() {
+        var accountNo = document.querySelector(".accountNumber").value;
+        var routingNo = document.querySelector(".routingNumber").value;
+
+        // console.log(accountNo, routingNo);
+        if (accountNo.length < 10 || routingNo.length < 10) {
+          document
+            .querySelector(".addAccountBtn")
+            .setAttribute("disabled", "disabled");
+        }
+      }
+
+      function resetBtn() {
+        document.querySelector(".addAccountBtn").removeAttribute("disabled");
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <label>Account Number</label>
+        <input class="accountNumber" type="number" oninput="resetBtn()" />
+      </div>
+      <div>
+        <label>Routing Number</label>
+        <input class="routingNumber" type="number" oninput="resetBtn()" />
+      </div>
+      <div>
+        <label>User Name</label>
+        <input type="text" />
+      </div>
+      <button onclick="onInp()" class="addAccountBtn">Add Account</button>
+    </div>
+  </body>
+</html>
